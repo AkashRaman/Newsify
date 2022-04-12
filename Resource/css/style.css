@@ -43,32 +43,11 @@ section {
 }
 
 header {
-  background-image: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      from(rgba(0, 0, 0, 0)),
-      color-stop(rgba(0, 0, 0, 0)),
-      color-stop(rgba(0, 0, 0, 0)),
-      color-stop(rgba(255, 255, 255, 0.75)),
-      color-stop(rgba(255, 255, 255, 0.9)),
-      to(rgba(255, 255, 255, 0.9))
-    ),
-    url(img/hero.jpg);
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0),
-      rgba(255, 255, 255, 0.75),
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.9)
-    ),
-    url(img/hero.jpg);
+  background-image: url(img/hero.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   position: relative;
   z-index: 5;
   -webkit-box-shadow: 0px 0px 18px 12px rgba(0, 0, 0, 0.4);
@@ -101,10 +80,11 @@ footer {
 /*-----------------------------------------HEADINGS--------------------------------------------------------*/
 
 h1 {
-  margin: 0;
+  margin: 5% 0 0 0;
   font-weight: 100;
   font-size: 300%;
-  text-align: right;
+  color: #fff;
+  text-align: center;
   word-spacing: 4px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -198,8 +178,8 @@ h3 {
 
 /*-----------------------------------------BUTTONS---------------------------------------------------------*/
 .btn-box {
-  position: absolute;
-  right: 0;
+  width: fit-content;
+  position: relative;
   padding: 5%;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -218,7 +198,7 @@ h3 {
 .btn:visited {
   display: inline-block;
   padding: 10px 30px;
-  border: 2px solid #6dff63;
+  border: 2px solid #ec1434;
   border-radius: 200px;
   text-decoration: none;
   color: #000;
@@ -230,10 +210,10 @@ h3 {
 
 .btn-full:link,
 .btn-full:visited {
-  background-color: #6dff63;
+  background-color: #ec1434;
   float: left;
-  -webkit-transform-origin: top right;
-  transform-origin: top right;
+  -webkit-transform-origin: center;
+  transform-origin: center;
 }
 
 .btn-ghost:link,
@@ -244,8 +224,6 @@ h3 {
 
 .btn-full:hover,
 .btn-full:active {
-  background-color: #3ade7a;
-  border-color: #3ade7a;
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
 }
@@ -394,9 +372,11 @@ h3 {
 .hero-text-box {
   max-width: 1840px;
   min-width: 508px;
+  background-color: rgba(0,0,0,0.75);
   position: absolute;
-  right: 4%;
-  top: 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*----------------------------------------- SECTION 2 -----------------------------------------------------*/
@@ -885,20 +865,20 @@ footer p {
 /*----------------------------------------- LOGO ----------------------------------------------------------*/
 
 .logo {
-  width: 55px;
-  height: 55px;
-  padding: 10px;
-  background-color: aliceblue;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   float: left;
+  background-color: #ec1434;
+  padding: 5px;
   margin: 10px 0 10px 20px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  transform-origin: center;
 }
 
 .logo:hover {
-  border-radius: 0%;
-  background-color: #6dff63;
+  transform: scale(1.10);  
 }
 
 /*------------------------------------------- NAVIGATION --------------------------------------------------*/
@@ -911,7 +891,7 @@ nav {
 
 .main-nav {
   margin: 0;
-  height: 75px;
+  height: 65px;
   width: 100%;
 }
 
@@ -1042,27 +1022,6 @@ nav {
 
 @import url("https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed");
 
-@-webkit-keyframes shadow-pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-  }
-}
-
-@keyframes shadow-pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-  }
-}
 
 @-webkit-keyframes pulse {
   0% {
@@ -1114,11 +1073,6 @@ nav {
   100% {
     opacity: 1 !important;
   }
-}
-
-.shadow-pulse {
-  -webkit-animation: shadow-pulse 1s infinite;
-  animation: shadow-pulse 1s infinite;
 }
 
 .pulse {
