@@ -3,80 +3,92 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="We're Liorganic, your foods, fruits &amp; vegetables delivery service without subscription fees. If you have no time for Shopping and cooking, let us take care of that."> 
-        <link rel="stylesheet" type="text/css" href="Vendor/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="Vendor/css/grid.css">
-        <link rel="stylesheet" type="text/css" href="Resource/css/style.css">
-        <link rel="stylesheet" type="text/css" href="Resource/css/queries.css">
+        <meta name="description" content="-Fill this space-"> 
         <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="Resource/fav-icon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="Resource/fav-icon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="Resource/fav-icon/favicon-16x16.png">
-        <link rel="manifest" href="Resource/fav-icon/site.webmanifest">
-        <link rel="mask-icon" href="Resource/fav-icon/safari-pinned-tab.svg" color="#6dff63">
-        <link rel="shortcut icon" href="Resource/fav-icon/favicon.ico">
-        <meta name="msapplication-TileColor" content="#6dff63">
-        <meta name="msapplication-config" content="/Resource/fav-icon/browserconfig.xml">
-        <meta name="theme-color" content="#6dff63">
-        
-        <script src="https://kit.fontawesome.com/e6dea43f5b.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>Front End Development</title>
+        <link rel="stylesheet" href="./src/scss/main.scss" />
+        <script defer type="module" src="src/js/controller.js"></script>
+
+        <!-- Icons -->
+
+        <script defer src="src/svg/fontawesome-free-6.2.1-web/js/all.js"></script>
+        <!-- <script src="node_modules/svg-injector/svg-injector.js"></script> -->
+
+        <!-- Fav Icons -->
+
+        <link rel="apple-touch-icon" sizes="57x57" href="./src/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="./src/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="./src/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="./src/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="./src/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="./src/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="./src/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="./src/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="./src/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="./src/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./src/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="./src/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./src/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./src/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="./src/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Newsify</title>
+
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
     </head>
     <body>
-    <script src="Vendor/js/jquery.waypoints.min.js"></script>
-    <script src="Resource/js/script.js"></script>
-        <header id="header">
-            <nav>
-                <div class="row main-nav">
-                    <img src="Vendor/icon/design-logo.svg" alt="Liorgan-logo" class="logo">
-                    <ul class="nav-section" id="nav-ul">
-                        <li><div><a class="about-us" href="#section-features">&nbsp;About Us&nbsp;</a></div></li>
-                        <li><div><a class="workings" href="#section-steps">&nbsp;Workings&nbsp;</a></div></li>
-                        <li><div><a class="our-cities" href="#section-cities">&nbsp;Our Cities&nbsp;</a></div></li>
-                        <li><div><a class="sign-up" href="#section-form">&nbsp;Sign Up&nbsp;</a></div></li>
+        <header class="header">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button class="nav__btn nav__btn__more click__btn" data-data_id = "more">
+                            <i class="fa-solid fa-list-ul"></i>
+                        </button>
+                    </li>
+                    <li class="nav__item">
+                        <button class="nav__btn nav__btn__search click__btn" data-data_id = "search">
+                            <i class="fa-solid fa-magnifying-glass search__icon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <ul class="nav__list">
+                    
+                    <li class="nav__item topic__item">
+                        <button class="nav__btn topic__btn nav__btn__world" data-data_id = "world">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>World</span>
+                        </button>
+                    </li>
+                    <li class="nav__item topic__item">
+                        <button class="nav__btn topic__btn nav__btn__sports" data-data_id = "sports">
+                            <i class="fa-solid fa-baseball"></i>
+                            <span>Sports</span>
+                        </button>
+                    </li>
+                    <li class="nav__item topic__item">
+                        <button class="nav__btn topic__btn nav__btn__entertaiment" data-data_id = "entertainment">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            <span>Entertainment</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="more-list hover">
+                    <ul class="more-list__nav nav__list">
                     </ul>
-                    <a class="mobile-nav-icon"><i class="fas fa-bars"></i></a>
                 </div>
             </nav>
-            <div class="hero-text-box fade-in">
-                <h1>Designing a </br>Web Page</h1>
-                <div class="btn-box row">
-                    <div class="btn-box-1"><a class="btn btn-full" href="#section-form">Teach me</a></div>  
-                </div>
-            </div> 
+            <img src="src/img/Newsify-logo-red2.png" alt="Logo" class="header__logo" />
         </header>
-        <section id="section-features" class="js--section-features" >
-            <div class="row long-copy">
-                <div class="row">
-                    <h2 id="features-title">&nbsp;Introduction to HTML, CSS and javascript&nbsp;</h2>
-                </div>
-                <div class="row">
-                    <p class="main-para">HTML represents Skeleton of the web page</p>
-                    <p class="main-para">CSS Adds style Component to the web page</p>
-                    <p class="main-para">Javascript adds Behaviour to the web page</p>
-                    <p class="main-para main-para-1">- Web page has many components to be designed</p>
-                    <p class="main-para main-para-1">- You can add Images, set it as background or set the dimensions of the web page</p>
-                    <p class="main-para main-para-1">- Following code explains how to add images, hyper link to a web page</p>
-                </div>
+        <main class="headlines">
+            <div class="headlines__slideshow">
+                
             </div>
-            <div class="row short-copy">
-                <img src="Resource/css/img/ai.jpg" class="col span-1-of-3">
-                <img src="Resource/css/img/webdesign.jpg" class="col span-1-of-3">
-                <img src="Resource/css/img/web.jpeg" class="col span-1-of-3">
-            </div>
-            <a class="row" href="http://www.csszengarden.com/" >CSS Explored Look and feel </a>
-        </section>
-        
+        </main>
     </body>
     
-</html>
-
-
+    </html>
+    
+    
