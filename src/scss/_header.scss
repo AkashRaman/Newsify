@@ -1,0 +1,217 @@
+.header {
+    width: 100vw;
+    display: flex;
+    background-color: $color-secondary;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+      height: 3.1rem;
+      display: block;
+      margin-right: 4rem;
+    }
+}
+
+.search {
+  background-color: $color-white;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  padding-right: 3rem;
+  transition: all 0.5s;
+  height: fit-content;
+  margin: auto;
+  width: 50%;
+  box-shadow: $form-box-shadow;
+  &:focus-within {
+    transform: translateY(-2px);
+  }
+
+  @media only screen and (max-width: $bp-medium-low) {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10rem;
+    display: none;
+    justify-items: center;
+    padding-left: 2rem;
+    transition: all 0.5s;
+  }
+
+  &__field {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.2rem;
+    width: 100%;
+    padding-left: 1rem;
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-grey-light-3;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+  }
+
+  &__btn {
+    font-weight: 500;
+    font-family: inherit;
+    background-color: $color-primary;
+    svg{
+       margin-right: 0 !important;
+    }
+    // &:hover {
+    //   transform: translateX(-0.25rem);
+    //   // padding-right: 2.5rem!important;
+    // }
+    @media only screen and (max-width: $bp-medium-low){
+      padding: 1rem 1rem 1rem 2rem !important;
+    }
+
+    @media only screen and (max-width: $bp-small){
+      padding: 0.75rem 0.75rem 0.75rem 1.75rem !important;
+    }
+  }
+}
+
+.nav {
+    align-self: stretch;
+    padding-left: 1rem;
+    display: flex;
+    position: relative;
+    &__list {
+      list-style: none;
+      position: relative;
+      display: flex;
+      height: 100%;
+    }
+  
+    &__item {
+      position: relative;
+    }
+  
+    &__btn {
+      height: 100%;
+      font-family: inherit;
+      background-color: $color-grad-1;
+      color: inherit;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 1.5rem;
+      transition: all 0.3s;
+  
+      display: flex;
+      align-items: center;
+  
+      svg {
+        height: 1.75rem;
+        width: 1.75rem;
+        fill: $color-primary;
+        margin-right: 0.7rem;
+        transform: translateY(-1px);
+      }
+      span {
+        @media only screen and (max-width: $bp-medium-low) {
+          display: none;
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+  
+      &:hover {
+        background-color: $color-grey-light-2;
+      }
+
+      &__search{
+        color: $color-primary;
+      }
+    }
+  
+    &__search-btn{
+      display: none;
+      border-radius: 0%;
+      @media only screen and (max-width: $bp-medium-low){
+        display: flex;
+      }
+    }
+  }
+
+  .more-list {
+    position: absolute;
+    // right: 0;
+    left: 0;
+    top: 100%;
+    z-index: 10;
+    width: 100vw;
+    height: 5rem;
+    background-color: $color-secondary;
+    box-shadow: 0px 4px 4px 1px rgba($color-grey-dark-1, 0.1);
+  
+    transition: all 0.5s 0.2s;
+
+    &__nav{
+      width: 100%;
+      justify-content: space-between!important;
+      display: flex;
+      padding: 0 2rem;
+    }
+
+    .nav__btn{
+      font-size: 100%!important;
+      font-weight: 700;
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        fill: $color-primary;
+        margin-right: 0.7rem;
+        // transform: translateY(-1px);
+      }
+    }
+  }
+
+  .search-container{
+    background-color: $color-transparent;
+    box-shadow: none;
+  }
+
+  .hover {
+    visibility: hidden;
+    opacity: 0;
+
+    &:hover,
+    .nav__list:hover + & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .click-btn{
+    display: inline;
+  }
+
+  .disable {
+    pointer-events: none!important;
+  }
+
+  .topic__item {
+    cursor: pointer;
+    &:hover {
+      .topic__btn{
+        background-color: $color-grey-light-2;
+      }
+    }
+  }

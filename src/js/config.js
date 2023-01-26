@@ -1,0 +1,1 @@
+export const API_KEY = "https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=9425de20df7845f3a1ea538a6af43f94";
