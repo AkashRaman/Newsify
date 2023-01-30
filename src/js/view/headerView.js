@@ -8,7 +8,7 @@ class HeaderView extends View{
             {name: 'Technology', class: 'technology', icon: `<i class="fa-solid fa-microchip"></i>`, topic: "Technology"},
             {name: 'Science', class: 'science', icon: `<i class="fa-solid fa-atom"></i>`, topic: "Science"},
             {name: 'Education', class: 'education', icon: `<i class="fa-solid fa-school"></i>`, topic: "Education"},
-            {name: 'Life Style', class: 'lifestyle', icon: `<i class="fa-solid fa-martini-glass-citrus"></i>`, topic: "Life Style"},
+            {name: 'Life Style', class: 'lifestyle', icon: `<i class="fa-solid fa-martini-glass-citrus"></i>`, topic: "LifeStyle"},
             {name: 'Crime', class: 'crime', icon: `<i class="fa-solid fa-handcuffs"></i>`, topic: "Crime"},
             {name: 'Weather', class: 'weather', icon: `<i class="fa-solid fa-cloud-sun"></i>`, topic: "Weather"},
             {name: 'Health', class: 'health', icon: `<i class="fa-solid fa-heart-pulse"></i>`, topic: "Health"},
@@ -24,7 +24,7 @@ class HeaderView extends View{
             {name: 'NBA', class: 'nba', icon: ``, topic: "NBA"},
             {name: 'WNBA', class: 'wnba', icon: ``, topic: "WNBA"},
             {name: 'NHL', class: 'nhl', icon: ``, topic: "NHL"},
-            {name: 'Boxing & MMA', class: 'boxing', icon: ``, topic: "Boxing & MMA"},
+            {name: 'Boxing & MMA', class: 'boxing', icon: ``, topic: "Boxing"},
             {name: 'Golf', class: 'golf', icon: ``, topic: "Golf"},
             {name: 'Olympics', class: 'olympics', icon: ``, topic: "Olympics"},
             {name: 'Tennis', class: 'tennis', icon: ``, topic: "Tennis"},
@@ -36,20 +36,20 @@ class HeaderView extends View{
             {name: 'Music', class: 'music', icon: ``, topic: "Music"},
             {name: 'Hollywood', class: 'hollywood', icon: ``, topic: "Hollywood"},
             {name: 'Bollywood', class: 'bollywood', icon: ``, topic: "Bollywood"},
-            {name: 'Tamil', class: 'tamil', icon: ``, topic: "Entertaiment Tamil"},
-            {name: 'Telugu', class: 'telugu', icon: ``, topic: "Entertaiment Telugu"},
-            {name: 'Hindi', class: 'hindi', icon: ``, topic: "Entertaiment indi"},
-            {name: 'Web Series', class: 'web-series', icon: ``, topic: "web series"},
+            {name: 'Kollywood', class: 'kollywood', icon: ``, topic: "Kollywood"},
+            {name: 'Tollywood', class: 'tollywood', icon: ``, topic: "Tollywood"},
+            {name: 'Mollywood', class: 'mollywood', icon: ``, topic: "Mollywood"},
+            {name: 'Web Series', class: 'web-series', icon: ``, topic: "webseries"},
         ],
         search: [{name: "Search"}],
         world:[
             {name: 'International', class: 'international', icon: ``, topic: "International"},
             {name: 'Europe', class: 'europe', icon: ``, topic: "Europe"},
             {name: 'Asia', class: 'asia', icon: ``, topic: "Asia"},
-            {name: 'Middle East', class: 'middle-east', icon: ``, topic: "Middle East"},
+            {name: 'Middle East', class: 'middle-east', icon: ``, topic: "MiddleEast"},
             {name: 'India', class: 'india', icon: ``, topic: "India"},
             {name: 'Americas', class: 'americas', icon: ``, topic: "Americas"},
-            {name: 'United Kingdom', class: 'uk', icon: ``, topic: "United Kingdom"},
+            {name: 'United Kingdom', class: 'uk', icon: ``, topic: "UK"},
             {name: 'Ukraine', class: 'ukraine', icon: ``, topic: "Ukraine"},
             {name: 'Australia', class: 'australia', icon: ``, topic: "Australia"},
             {name: 'China', class: 'china', icon: ``, topic: "China"},
@@ -85,8 +85,10 @@ class HeaderView extends View{
             return `
             <li class="nav__item">
                 <button class="nav__btn nav__btn__${d.class}" data-topic = "${d.class}">
-                    ${d.icon}
-                    <span>${d.name}</span>
+                    <a href="./?name=${d.topic}">
+                        ${d.icon}
+                        <span>${d.name}</span>
+                    </a>
                 </button>
             </li>`}
         ).join("");
@@ -104,12 +106,11 @@ class HeaderView extends View{
         this._render(id);
     }
 
-    addHandlerMoreBtn(){
-        this._navBtns = document.querySelectorAll('.topic__btn');
-        [...this._navBtns].map(btn => btn.addEventListener('mouseover', e => this._openListOnHover(e.target.closest('.nav__btn').dataset.data_id)));
+    addHandlerUrl(handler){
+        ['hashchange','load'].forEach(event => window.addEventListener(event,e => handler()));
     }
 
-    addHandlerClick() {
+    addHandler() {
         window.addEventListener('click', e => {
             const target = e.target;
             if ((target.closest('.more-list') || this._grandParentEl.classList.contains('hover')) || target.closest('.click__btn')){
@@ -131,6 +132,9 @@ class HeaderView extends View{
             [...this._navBtns].map(btn => btn.classList.add("disable"));
             this._openListOnClick(id);
         }));
+
+        this._navBtns = document.querySelectorAll('.topic__btn');
+        [...this._navBtns].map(btn => btn.addEventListener('mouseover', e => this._openListOnHover(e.target.closest('.nav__btn').dataset.data_id)));
     }
 }
 

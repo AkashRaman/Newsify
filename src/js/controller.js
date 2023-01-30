@@ -1,20 +1,25 @@
 import headerView from "./view/headerView";
 import * as model from "./model.js"
-import * as bootstrap from 'bootstrap'
+import windowsView from "./view/windowsView";
+import sliderView from "./view/sliderView";
+// import * as bootstrap from 'bootstrap'
 
 const loadArticle = async() => {
-    const articles = await model.getArticles();
-    console.log(articles)
-
+    const name = window.location.search.slice(6);
+    const articles = await model.getArticles(name);
     if(!articles){
-
+        return;
     }
+    sliderView.loadSlides(articles);
+    sliderView.startSlideshow();
 }
 
-const init = () =>{
-    loadArticle();
-    setTimeout(headerView.addHandlerMoreBtn(),100);
-    setTimeout(headerView.addHandlerClick(),100);
+const init = () => {
+    setTimeout(() => {
+        windowsView.addHandler()
+        headerView.addHandlerUrl(loadArticle)
+        headerView.addHandler()
+    },10);
 };
 init();
 

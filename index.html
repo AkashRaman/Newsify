@@ -58,33 +58,48 @@
                     
                     <li class="nav__item topic__item">
                         <button class="nav__btn topic__btn nav__btn__world" data-data_id = "world">
-                            <i class="fa-solid fa-globe"></i>
-                            <span>World</span>
+                            <a href="./?name=world">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>World</span>
+                            </a>
                         </button>
                     </li>
                     <li class="nav__item topic__item">
                         <button class="nav__btn topic__btn nav__btn__sports" data-data_id = "sports">
-                            <i class="fa-solid fa-baseball"></i>
-                            <span>Sports</span>
+                            <a href="./?name=sports">
+                                <i class="fa-solid fa-baseball"></i>
+                                <span>Sports</span>
+                            </a>
                         </button>
                     </li>
                     <li class="nav__item topic__item">
                         <button class="nav__btn topic__btn nav__btn__entertaiment" data-data_id = "entertainment">
-                            <i class="fa-solid fa-clapperboard"></i>
-                            <span>Entertainment</span>
+                            <a href="./?name=entertainment">
+                                <i class="fa-solid fa-clapperboard"></i>
+                                <span>Entertainment</span>
+                            </a>
                         </button>
                     </li>
                 </ul>
-                <div class="more-list hover">
+                <div class="more-list hover view-width">
                     <ul class="more-list__nav nav__list">
                     </ul>
                 </div>
             </nav>
             <img src="src/img/Newsify-logo-red2.png" alt="Logo" class="header__logo" />
         </header>
-        <main class="headlines">
-            <div class="headlines__slideshow">
-                
+        <main class="slider" data-pos="0">
+            <div class="slider__slides">
+            </div>
+
+            <button class="slider__btn slider__btn--prev" data-direction="Left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider__btn slider__btn--next" data-direction="Right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="slider__dots">
             </div>
         </main>
     </body>
