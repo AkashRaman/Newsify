@@ -887,15 +887,9 @@ class HeaderView extends (0, _viewJsDefault.default) {
         this._render(id);
     }
     addHandlerUrl(handler) {
-        [
-            "hashchange",
-            "load"
-        ].forEach((event)=>{
-            console.log(`Event ${event} handler for loading article working`);
-            window.addEventListener(event, (e)=>{
-                console.log(`Event ${event} handler is activated`);
-                handler();
-            });
+        window.addEventListener("load", (e)=>{
+            console.log(`Event load handler is activated`);
+            setTimeout(handler(), 10);
         });
     }
     addHandler() {
