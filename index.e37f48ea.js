@@ -550,9 +550,9 @@ const loadArticle = async ()=>{
     (0, _sliderViewDefault.default).startSlideshow();
 };
 const init = ()=>{
+    (0, _headerViewDefault.default).addHandlerUrl(loadArticle);
     setTimeout(()=>{
         (0, _windowsViewDefault.default).addHandler();
-        (0, _headerViewDefault.default).addHandlerUrl(loadArticle);
         (0, _headerViewDefault.default).addHandler();
     }, 10);
 };
@@ -1622,13 +1622,13 @@ class WindowsView {
         console.log("working");
         console.log(this._clientWidthEls);
         [
-            "resize",
-            "load"
-        ].map((event)=>window.addEventListener(event, ()=>{
-                [
-                    ...this._clientWidthEls
-                ].map((el)=>this._setClientWidth(el));
-            }));
+            ...this._clientWidthEls
+        ].map((el)=>this._setClientWidth(el));
+        window.addEventListener("resize", ()=>{
+            [
+                ...this._clientWidthEls
+            ].map((el)=>this._setClientWidth(el));
+        });
     }
 }
 exports.default = new WindowsView();
