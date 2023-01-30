@@ -90,9 +90,9 @@ class SliderView extends View{
         if(this._parentElement == this._dotBox) return `<div class="slider__indicator"></div>` + data.map(d => `<div class="slider__dot" data-pos="${data.indexOf(d)}"></div>`).join("");
         if(this._parentElement == this._slides) return data.map(d => `
             <div class="slider__slide">
-                <div class="slider__background" style="background-image: url(${d.urlToImage})"></div>
-                <img class="slider__image" src="${d.urlToImage}">
-                <div class="slider__title"><div class="slider__title__container"><h1>${this._generateTitle(d.title)}</h1><span class="slider__slide__time">Published at: ${d.publishedAt.slice(0,10)}</span></div></div>
+                <div class="slider__background" style="background-image: url(${d.image.url})"></div>
+                <img class="slider__image" src="${d.image.url}">
+                <div class="slider__title"><div class="slider__title__container"><h1>${this._generateTitle(d.title)}</h1><span class="slider__slide__time">Published at: ${d.datePublished.slice(0,10)}</span></div></div>
             </div>`
         ).join("");
     }

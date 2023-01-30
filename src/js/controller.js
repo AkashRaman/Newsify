@@ -5,20 +5,20 @@ import sliderView from "./view/sliderView";
 // import * as bootstrap from 'bootstrap'
 
 const loadArticle = async() => {
+    console.log('Loading Article');
     const name = window.location.search.slice(6);
     const articles = await model.getArticles(name);
-    if(!articles){
-        return;
+    if(articles){
+        sliderView.loadSlides(articles);
+        sliderView.startSlideshow();
     }
-    sliderView.loadSlides(articles);
-    sliderView.startSlideshow();
 }
 
 const init = () => {
+    windowsView.addHandlerUrl(loadArticle);
     setTimeout(() => {
-        windowsView.addHandler()
-        headerView.addHandlerUrl(loadArticle)
-        headerView.addHandler()
+        windowsView.addHandler();
+        headerView.addHandlerBtns();
     },10);
 };
 init();

@@ -61,6 +61,9 @@ class HeaderView extends View{
     _parentElement = document.querySelector('.more-list__nav');
     _navBtns;
     _navClickBtns;
+    _form;
+    _formBtn;
+
 
     _render(data_id){
         if(this._parentElement.dataset.topic == data_id){
@@ -68,8 +71,8 @@ class HeaderView extends View{
         }
         const data = this._data[data_id];
         this._parentElement.dataset.topic = data_id;
-
         super._render(data);
+        if(data_id === 'search') this.addHandlerForm();
     }
     
     _generateMarkup(data){
@@ -106,11 +109,21 @@ class HeaderView extends View{
         this._render(id);
     }
 
-    addHandlerUrl(handler){
-        ['hashchange','load'].forEach(event => window.addEventListener(event,e => handler()));
+    addHandlerForm() {
+        if(this._form || this._formBtn) return;
+        this._form = document.querySelector('.search');
+        this._formBtn = document.querySelector('.search__btn');
+        [this._form,this._formBtn].map(el => el.addEventListener('submit', e => {
+            e.preventDefault();
+            const value = document.querySelector('.search__field').value;
+            window.location.search = `name=${value}`;
+        }))
     }
 
-    addHandler() {
+    addHandlerBtns() {
+        this._navBtns = document.querySelectorAll('.topic__btn');
+        [...this._navBtns].map(btn => btn.addEventListener('mouseover', e => this._openListOnHover(e.target.closest('.nav__btn').dataset.data_id)));
+
         window.addEventListener('click', e => {
             const target = e.target;
             if ((target.closest('.more-list') || this._grandParentEl.classList.contains('hover')) || target.closest('.click__btn')){
@@ -122,6 +135,7 @@ class HeaderView extends View{
             
             
         })
+
         this._navClickBtns = document.querySelectorAll('.click__btn');
         [...this._navClickBtns].map(btn => btn.addEventListener('click', e => {
             const id = e.target.closest('.nav__btn').dataset.data_id;
@@ -132,9 +146,6 @@ class HeaderView extends View{
             [...this._navBtns].map(btn => btn.classList.add("disable"));
             this._openListOnClick(id);
         }));
-
-        this._navBtns = document.querySelectorAll('.topic__btn');
-        [...this._navBtns].map(btn => btn.addEventListener('mouseover', e => this._openListOnHover(e.target.closest('.nav__btn').dataset.data_id)));
     }
 }
 
