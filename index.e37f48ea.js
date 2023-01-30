@@ -995,11 +995,11 @@ parcelHelpers.export(exports, "API_KEY", ()=>API_KEY);
 parcelHelpers.export(exports, "API_LINK", ()=>API_LINK);
 parcelHelpers.export(exports, "API_SEARCH", ()=>API_SEARCH);
 parcelHelpers.export(exports, "API_SEARCH_REST", ()=>API_SEARCH_REST);
-const API_KEY = `9425de20df7845f3a1ea538a6af43f94`;
+const API_KEY = ``;
 console.log(new Date());
-const API_LINK = `https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=${API_KEY}`;
+const API_LINK = `https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=9425de20df7845f3a1ea538a6af43f94`;
 const API_SEARCH = `https://newsapi.org/v2/everything?q=`;
-const API_SEARCH_REST = `&from=2022-12-30&sortBy=publishedAt&apiKey=${API_KEY}`;
+const API_SEARCH_REST = `&from=2022-12-30&sortBy=publishedAt&apiKey=9425de20df7845f3a1ea538a6af43f94`;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
