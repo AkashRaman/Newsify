@@ -892,7 +892,10 @@ class HeaderView extends (0, _viewJsDefault.default) {
             "load"
         ].forEach((event)=>{
             console.log(`Event ${event} handler for loading article working`);
-            window.addEventListener(event, (e)=>handler());
+            window.addEventListener(event, (e)=>{
+                console.log(`Event ${event} handler is activated`);
+                handler();
+            });
         });
     }
     addHandler() {
