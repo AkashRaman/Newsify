@@ -542,6 +542,7 @@ var _sliderView = require("./view/sliderView");
 var _sliderViewDefault = parcelHelpers.interopDefault(_sliderView);
 // import * as bootstrap from 'bootstrap'
 const loadArticle = async ()=>{
+    console.log("Loading Article");
     const name = window.location.search.slice(6);
     const articles = await _modelJs.getArticles(name);
     if (!articles) return;
