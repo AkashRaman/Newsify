@@ -545,9 +545,10 @@ const loadArticle = async ()=>{
     console.log("Loading Article");
     const name = window.location.search.slice(6);
     const articles = await _modelJs.getArticles(name);
-    if (!articles) return;
-    (0, _sliderViewDefault.default).loadSlides(articles);
-    (0, _sliderViewDefault.default).startSlideshow();
+    if (articles) {
+        (0, _sliderViewDefault.default).loadSlides(articles);
+        (0, _sliderViewDefault.default).startSlideshow();
+    }
 };
 const init = ()=>{
     (0, _headerViewDefault.default).addHandlerUrl(loadArticle);
@@ -982,9 +983,9 @@ var _helpersJs = require("./helpers.js");
 const getArticles = async (name)=>{
     try {
         console.log((0, _configJs.API_LINK));
-        const res = !name ? await (0, _helpersJs.getJSON)((0, _configJs.API_LINK)) : await (0, _helpersJs.getJSON)(`${(0, _configJs.API_SEARCH)}${name}${(0, _configJs.API_SEARCH_REST)}`);
+        const res = !name ? await (0, _helpersJs.getJSON)((0, _configJs.API_LINK), (0, _configJs.API_HEADER)) : await (0, _helpersJs.getJSON)(`${(0, _configJs.API_SEARCH)}${name}${(0, _configJs.API_SEARCH_REST)}`, (0, _configJs.API_HEADER));
         console.log(`${(0, _configJs.API_SEARCH)}${name}${(0, _configJs.API_SEARCH_REST)}`);
-        const articles = res.articles.length > 10 ? res.articles.slice(0, 10) : res.articles;
+        const articles = res.value.length > 10 ? res.value.slice(0, 10) : res.value;
         return articles;
     } catch (err) {
         console.log(err);
@@ -995,23 +996,29 @@ const getArticles = async (name)=>{
 },{"./config.js":"k5Hzs","./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5Hzs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "API_KEY", ()=>API_KEY);
 parcelHelpers.export(exports, "API_LINK", ()=>API_LINK);
+parcelHelpers.export(exports, "API_HEADER", ()=>API_HEADER);
 parcelHelpers.export(exports, "API_SEARCH", ()=>API_SEARCH);
 parcelHelpers.export(exports, "API_SEARCH_REST", ()=>API_SEARCH_REST);
-const API_KEY = ``;
-console.log(new Date());
-const API_LINK = `https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=9425de20df7845f3a1ea538a6af43f94`;
-const API_SEARCH = `https://newsapi.org/v2/everything?q=`;
-const API_SEARCH_REST = `&from=2022-12-30&sortBy=publishedAt&apiKey=9425de20df7845f3a1ea538a6af43f94`;
+const API_LINK = `https://bing-news-search1.p.rapidapi.com/news/trendingtopics?textFormat=Raw&safeSearch=Off`;
+const API_HEADER = {
+    method: "GET",
+    headers: {
+        "X-BingApis-SDK": "true",
+        "X-RapidAPI-Key": "eddcc6d6bamshc8a73273d065269p10b4bbjsna099f1c9e073",
+        "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com"
+    }
+};
+const API_SEARCH = `https://bing-news-search1.p.rapidapi.com/news/search?q=`;
+const API_SEARCH_REST = `UK&freshness=Day&textFormat=Raw&safeSearch=Off`;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getJSON", ()=>getJSON);
 const { async  } = require("3675736eedc7b03f");
-const getJSON = async (url, errorMsg = "Something went wrong")=>{
-    const response = await fetch(url);
+const getJSON = async (url, header, errorMsg = "Something went wrong")=>{
+    const response = header ? await fetch(url, header) : await fetch(url);
     if (!response.ok) throw new Error(errorMsg);
     return response.json();
 };
@@ -1704,9 +1711,9 @@ class SliderView extends (0, _viewJsDefault.default) {
         if (this._parentElement == this._dotBox) return `<div class="slider__indicator"></div>` + data.map((d)=>`<div class="slider__dot" data-pos="${data.indexOf(d)}"></div>`).join("");
         if (this._parentElement == this._slides) return data.map((d)=>`
             <div class="slider__slide">
-                <div class="slider__background" style="background-image: url(${d.urlToImage})"></div>
-                <img class="slider__image" src="${d.urlToImage}">
-                <div class="slider__title"><div class="slider__title__container"><h1>${this._generateTitle(d.title)}</h1><span class="slider__slide__time">Published at: ${d.publishedAt.slice(0, 10)}</span></div></div>
+                <div class="slider__background" style="background-image: url(${d.image.thumbnail.contentUrl})"></div>
+                <img class="slider__image" src="${d.image.thumbnail.contentUrl}">
+                <div class="slider__title"><div class="slider__title__container"><h1>${this._generateTitle(d.name)}</h1><span class="slider__slide__time">Published at: ${d.datePublished.slice(0, 10)}</span></div></div>
             </div>`).join("");
     }
     _setDuration(currentPos, newPos, ms) {
