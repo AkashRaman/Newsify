@@ -890,7 +890,10 @@ class HeaderView extends (0, _viewJsDefault.default) {
         [
             "hashchange",
             "load"
-        ].forEach((event)=>window.addEventListener(event, (e)=>handler()));
+        ].forEach((event)=>{
+            console.log(`Event ${event} handler for loading article working`);
+            window.addEventListener(event, (e)=>handler());
+        });
     }
     addHandler() {
         window.addEventListener("click", (e)=>{
@@ -981,10 +984,13 @@ var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
 const getArticles = async (name)=>{
     try {
+        console.log((0, _configJs.API_LINK));
         const res = !name ? await (0, _helpersJs.getJSON)((0, _configJs.API_LINK)) : await (0, _helpersJs.getJSON)(`${(0, _configJs.API_SEARCH)}${name}${(0, _configJs.API_SEARCH_REST)}`);
+        console.log(`${(0, _configJs.API_SEARCH)}${name}${(0, _configJs.API_SEARCH_REST)}`);
         const articles = res.articles.length > 10 ? res.articles.slice(0, 10) : res.articles;
         return articles;
     } catch (err) {
+        console.log(err);
         return null;
     }
 };
